@@ -36,7 +36,7 @@ function onError(error){
 
     switch (error.code){
         case 'EACCES':
-            console.error(bind + ' requires elevated probileges');
+            console.error(bind + ' requires elevated previlegies');
             process.exit(1);
             breask;
         case 'EADDRIUSE':

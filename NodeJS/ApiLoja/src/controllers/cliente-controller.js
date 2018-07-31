@@ -15,6 +15,30 @@ exports.get = async (req, res, next) => {
     }
 }
 
+exports.getById = async (req, res, next) => {
+    try {
+        var cliente = await clienteDao.findById(req.params.id);
+        res.status(200).send(cliente);
+    } catch (error) {
+        res.status(500).send({
+            Message: 'Ocorreu um erro.',
+            Data: error
+        });
+    }
+}
+
+exports.getByCpf = async (req, res, next) => {
+    try {
+        var cliente = await clienteDao.findByCpf(req.params.cpf);
+        res.status(200).send(cliente);
+    } catch (error) {
+        res.status(500).send({
+            Message: 'Ocorreu um erro.',
+            Data: error
+        });
+    }
+}
+
 exports.post = async (req, res, next) => {
     try {
         await clienteDao.create(req.body);

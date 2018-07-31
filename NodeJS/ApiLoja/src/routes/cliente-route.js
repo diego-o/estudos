@@ -5,6 +5,9 @@ const router = express.Router();
 const controller = require('../controllers/cliente-controller');
 
 router.get('/', controller.get);
+router.get('/:id', controller.getById);
+router.get('/cpf/:cpf', controller.getByCpf);
+
 router.post('/', controller.post);
 
 module.exports = router;
