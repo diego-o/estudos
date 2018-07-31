@@ -9,5 +9,6 @@ router.get('/:id', controller.getById);
 router.get('/cpf/:cpf', controller.getByCpf);
 
 router.post('/', controller.post);
+router.put('/:id', controller.put);
 
 module.exports = router;

@@ -19,3 +19,19 @@ exports.create = async (data) => {
     var cliente = new Cliente(data);
     await cliente.save();
 }
+
+exports.update = async (id, data) => {
+    await Cliente.findByIdAndUpdate(id, {
+        $set: {
+            nome: data.nome,
+            endereco: {
+                cep: data.endereco.cep,
+                logradouro: data.endereco.logradouro,
+                bairro: data.endereco.bairro,
+                cidade: data.endereco.cidade,
+                uf: data.endereco.uf,
+                complemento: data.endereco.complemento
+            }
+        }
+    });
+}

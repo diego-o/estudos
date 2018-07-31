@@ -50,3 +50,15 @@ exports.post = async (req, res, next) => {
         });
     }
 }
+
+exports.put = async (req, res, next) => {
+    try {
+        await clienteDao.update(req.params.id, req.body);
+        res.status(200).send({ Message: 'Cliente atualizado com sucesso.' });
+    } catch (error) {
+        res.status(500).send({
+            Message: 'Ocorreu um erro.',
+            Data: error
+        });
+    }
+}
