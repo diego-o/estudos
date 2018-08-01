@@ -41,7 +41,9 @@ exports.getByCpf = async (req, res, next) => {
 
 exports.post = async (req, res, next) => {
     try {
+        req.body.senha = md5(req.body.senha);        
         await clienteDao.create(req.body);
+        
         res.status(201).send({ Message: 'Cliente cadastrado com sucesso.' });
     } catch (error) {
         res.status(500).send({

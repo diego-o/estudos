@@ -15,6 +15,13 @@ exports.findByCpf = async (cpf) => {
     return await Cliente.findOne({ cpf: cpf }, 'nome cpf email endereco');
 }
 
+exports.findForAuth = async (data) => {
+    return await Cliente.findOne({
+        email: data.email,
+        senha: data.senha
+    }, 'nome cpf email endereco');
+}
+
 exports.create = async (data) => {
     var cliente = new Cliente(data);
     await cliente.save();

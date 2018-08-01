@@ -2,12 +2,9 @@
 
 const express = require('express');
 const router = express.Router();
+const controller = require('../controllers/index-controller');
 
-router.get('/', (req, res, next) => {
-    res.status(200).send({
-        title: "Node API Loja",
-        version: "0.0.1"
-    })
-});
+router.get('/', controller.get);
+router.post('/token', controller.token);
 
 module.exports = router;
